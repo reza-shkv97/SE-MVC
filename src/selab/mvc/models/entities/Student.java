@@ -32,13 +32,15 @@ public class Student implements Model {
     public String getStudentNo() { return this.studentNo; }
 
     public float getAverage() {
-        // TODO: Calculate and return the average of the points
         return 0;
     }
 
     public String getCourses() {
-        // TODO: Return a comma separated list of course names
-        return "-";
+        String result = "";
+        for (StudentCourse course : courses) {
+            result = result.concat(course.getCourse().getTitle()).concat(",");
+        }
+        return result;
     }
 
     /**

@@ -67,13 +67,15 @@ public class Course implements Model {
     }
 
     public float getAverage() {
-        // TODO: Calculate and return the average of the points
         return 0;
     }
 
     public String getStudents() {
-        // TODO: Return a comma separated list of student names
-        return "-";
+        String result = "";
+        for (StudentCourse student : students) {
+            result = result.concat(student.getStudent().getName()).concat(",");
+        }
+        return result;
     }
 
     /**
