@@ -3,6 +3,8 @@ package selab.mvc.models.entities;
 import selab.mvc.models.Model;
 import sun.misc.Regexp;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Course implements Model {
@@ -11,7 +13,11 @@ public class Course implements Model {
     private String startTime = null;
     private String endTime = null;
     private Weekday weekday;
+    private List<StudentCourse> students;
 
+    public Course() {
+        this.students = new ArrayList<>();
+    }
 
     @Override
     public String getPrimaryKey() {
@@ -108,5 +114,10 @@ public class Course implements Model {
             return 0;
         else
             return -1;
+    }
+
+    public void addStudent(StudentCourse studentCourse){
+        if (!this.students.contains(studentCourse))
+            this.students.add(studentCourse);
     }
 }
