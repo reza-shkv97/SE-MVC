@@ -67,7 +67,13 @@ public class Course implements Model {
     }
 
     public float getAverage() {
-        return 0;
+        if (students.size() == 0)
+            return 0;
+        float sum = 0;
+        for (StudentCourse student : students) {
+            sum += Float.parseFloat(student.getPoints());
+        }
+        return sum / students.size();
     }
 
     public String getStudents() {

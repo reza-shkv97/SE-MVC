@@ -32,7 +32,13 @@ public class Student implements Model {
     public String getStudentNo() { return this.studentNo; }
 
     public float getAverage() {
-        return 0;
+        if (courses.size() == 0)
+            return 0;
+        float sum = 0;
+        for (StudentCourse course : courses) {
+            sum += Float.parseFloat(course.getPoints());
+        }
+        return sum / courses.size();
     }
 
     public String getCourses() {

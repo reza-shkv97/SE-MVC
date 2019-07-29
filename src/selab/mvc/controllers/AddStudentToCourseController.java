@@ -37,6 +37,8 @@ public class AddStudentToCourseController extends Controller {
         studentCourse.setStudent(student);
         studentCourse.setPoints(points);
 
+
+
         student.addCourse(studentCourse);
         course.addStudent(studentCourse);
 
